@@ -1,0 +1,79 @@
+* {
+  outline: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: floralwhite;
+}
+
+h1 {
+  color: floralwhite;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: floralwhite;
+  height: 100%;
+  width: 100%;
+}
+
+html, body {
+  height: 97%;
+  width: 100%;
+}
+
+#divinputregrex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 25px;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+#divinputregrex ::-webkit-input-placeholder {
+  color: floralwhite;
+  opacity: 0.8;
+}
+
+#divinputregrex :-ms-input-placeholder {
+  color: floralwhite;
+  opacity: 0.8;
+}
+
+#divinputregrex ::-ms-input-placeholder {
+  color: floralwhite;
+  opacity: 0.8;
+}
+
+#divinputregrex ::placeholder {
+  color: floralwhite;
+  opacity: 0.8;
+}
+
+.inputregrex {
+  width: 40vw;
+  height: 9vh;
+  font-size: 1.4em;
+  padding-left: 15px;
+  border-radius: 20px;
+  border-style: unset;
+  background-color: rgba(215, 85, 255, 0.274);
+  border-color: rgba(215, 85, 255, 0.123);
+  color: floralwhite;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.inputregrex:focus {
+  border-style: solid;
+  border-width: 3px;
+}
+/*# sourceMappingURL=er.css.map */

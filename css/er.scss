@@ -1,0 +1,36 @@
+@import 'base';
+$marginInputRegrex: 25px;
+
+html, body {
+    height: 97%;
+    width: 100%;
+}
+
+#divinputregrex{
+    display: flex;
+    flex-direction: column;
+    gap: $marginInputRegrex;
+    margin-left: $marginInputRegrex;
+    margin-top: $marginInputRegrex;
+    @include placeholder {
+        color: $fontColor;
+        opacity: 0.8;
+    }
+}
+
+.inputregrex{
+    width: 40vw;
+    height: 9vh;
+    font-size: 1.4em;
+    padding-left: 15px;
+    border-radius: 20px;
+    border-style: unset;
+    background-color: rgba(215, 85, 255, 0.274);
+    border-color: rgba(215, 85, 255, 0.123);
+    &:focus{
+        border-style: solid;
+        border-width: 3px;
+    }
+    color: $fontColor;
+    transition: 0.2s;
+}

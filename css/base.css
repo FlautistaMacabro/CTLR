@@ -1,0 +1,22 @@
+* {
+  outline: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: floralwhite;
+}
+
+h1 {
+  color: floralwhite;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: floralwhite;
+  height: 100%;
+  width: 100%;
+}
+/*# sourceMappingURL=base.css.map */

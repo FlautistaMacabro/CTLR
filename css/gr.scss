@@ -1,1 +1,75 @@
 @import 'base';
+@import 'regulars_base';
+$borderRadiusTable: 10px;
+$paddingColumn: 10px;
+$borderWidthColumn: 2px;
+
+@mixin borderDivGrammarColumnM($direction) {
+    border-#{$direction}-color: rgba(158, 39, 173, 0.11);
+    border-#{$direction}-width: $borderWidthColumn;
+    border-#{$direction}-style: solid;
+}
+
+@mixin tableTextGrammar {
+    text-align: center;
+    font-size: large;
+}
+
+@mixin columnTableGrammar {
+    margin: 0;
+    width: 30vw;
+}
+
+#divgrammar {
+    margin-left: $marginLeft;
+    margin-top: $marginLeft;
+}
+
+#divgrammartable {
+    @include tableTextGrammar();
+    width: 100% - $marginLeft;
+    background-color: rgba(215, 85, 255, 0.123);
+    border-radius: $borderRadiusTable;
+}
+
+#divgrammarhead {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: rgba(215, 85, 255, 0.274);
+    border-top-left-radius: $borderRadiusTable;
+    border-top-right-radius: $borderRadiusTable;
+}
+
+.divgrammarrow {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.divgrammarcolumn {
+    padding-top: $paddingColumn;
+    padding-bottom: $paddingColumn;
+}
+
+.divgrammarcolumnM {
+    @include borderDivGrammarColumnM("right");
+    @include borderDivGrammarColumnM("left");
+}
+
+.pgrammarcolumn {
+    @include columnTableGrammar();
+    padding-left: 1vw;
+}
+
+.pgrammarcolumnM {
+    padding-left: 0;
+}
+
+.inputgrammarcolumn {
+    @include columnTableGrammar();
+    @include tableTextGrammar();
+    border: none;
+    color: $fontColor;
+    background-color: transparent;
+    padding: 0;
+}
+

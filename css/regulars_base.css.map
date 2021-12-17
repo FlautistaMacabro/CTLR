@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,IAAI,EAAE,IAAI,CAAC;EACP,MAAM,EAAE,GAAG;EACX,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "regulars_base.scss"
+    ],
+    "names": [],
+    "file": "regulars_base.css"
+}

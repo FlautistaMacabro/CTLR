@@ -1,17 +1,13 @@
 @import 'base';
-$marginInputRegrex: 25px;
-
-html, body {
-    height: 97%;
-    width: 100%;
-}
+@import 'regulars_base';
+$marginInputOthers: 25px;
 
 #divinputregrex{
     display: flex;
     flex-direction: column;
-    gap: $marginInputRegrex;
-    margin-left: $marginInputRegrex;
-    margin-top: $marginInputRegrex;
+    gap: $marginInputOthers;
+    margin-left: $marginLeft;
+    margin-top: $marginInputOthers;
     @include placeholder {
         color: $fontColor;
         opacity: 0.8;

@@ -34,7 +34,7 @@ html, body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 25px;
-  margin-left: 25px;
+  margin-left: 2%;
   margin-top: 25px;
 }
 

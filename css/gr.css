@@ -16,6 +16,77 @@ html, body {
   margin: 0;
   padding: 0;
   color: floralwhite;
-  height: 99%;
+  height: 100%;
+  width: 100%;
+}
+
+html, body {
+  height: 97%;
+  width: 100%;
+}
+
+#divgrammar {
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+#divgrammartable {
+  text-align: center;
+  font-size: large;
+  width: 98%;
+  background-color: rgba(215, 85, 255, 0.123);
+  border-radius: 10px;
+}
+
+#divgrammarhead {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  background-color: rgba(215, 85, 255, 0.274);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.divgrammarrow {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+}
+
+.divgrammarcolumn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.divgrammarcolumnM {
+  border-right-color: rgba(158, 39, 173, 0.11);
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-left-color: rgba(158, 39, 173, 0.11);
+  border-left-width: 2px;
+  border-left-style: solid;
+}
+
+.pgrammarcolumn {
+  margin: 0;
+  width: 30vw;
+  padding-left: 1vw;
+}
+
+.pgrammarcolumnM {
+  padding-left: 0;
+}
+
+.inputgrammarcolumn {
+  margin: 0;
+  width: 30vw;
+  text-align: center;
+  font-size: large;
+  border: none;
+  color: floralwhite;
+  background-color: transparent;
+  padding: 0;
 }
 /*# sourceMappingURL=gr.css.map */

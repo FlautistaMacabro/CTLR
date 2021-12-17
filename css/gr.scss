@@ -20,6 +20,11 @@ $borderWidthColumn: 2px;
     width: 30vw;
 }
 
+@mixin displayGridAuto {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
 #divgrammar {
     margin-left: $marginLeft;
     margin-top: $marginLeft;
@@ -33,16 +38,15 @@ $borderWidthColumn: 2px;
 }
 
 #divgrammarhead {
-    display: grid;
-    grid-template-columns: auto auto auto;
+    @include displayGridAuto();
     background-color: rgba(215, 85, 255, 0.274);
     border-top-left-radius: $borderRadiusTable;
     border-top-right-radius: $borderRadiusTable;
 }
 
 .divgrammarrow {
-    display: grid;
-    grid-template-columns: auto auto auto;
+    @include displayGridAuto();
+    @include borderDivGrammarColumnM("top");
 }
 
 .divgrammarcolumn {

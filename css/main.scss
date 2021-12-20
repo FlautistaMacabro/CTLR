@@ -11,12 +11,14 @@ body {
 }
 
 object {
-    height: 98%;
+    height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 aside {
     z-index: 1;
+    height: 100%;
 }
 
 nav {
@@ -31,16 +33,32 @@ option {
 }
 
 #divgeral {
-    position: relative;
     @include FullScreen();
+    position: relative;
+}
+
+#divprinc {
+    @include FullScreen();
+    position: absolute;
     display: grid;
     grid-template-columns: 20vw 68.8vw auto;
+}
+
+#divtestarea {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
 }
 
 #divopentestarea {
     display: flex;
     flex-direction: row;
+    height: 40px;
     margin-top: 20vh;
+    margin-bottom: 70vh;
     border-radius: 20px 0px 0px 20px;
     background-color: $roxoEscuroForte;
     transition: 0.2s;
@@ -54,15 +72,21 @@ option {
 }
 
 #bttopentestarea {
+    font-size: medium;
     padding-right: 0;
     padding-left: 10px;
+    padding-right: 10px;
+    &::before{
+        content: "⪻ Área de Testes";
+    }
     &:hover{
         cursor: pointer;
     }
 }
 
-#popentestarea {
-    margin: 10px;
+.divcontenttestarea { 
+    width: 0; 
+    transition: 0.3s;
 }
 
 #divmenu {
@@ -77,3 +101,15 @@ option {
         background-color: $roxoEscuro;
     }
 }
+
+// Para mudanças
+
+.display {  
+    width: 30vw; 
+    height: 100%; 
+    background-color: $roxoEscuroForte;
+    transition: 0.3s;
+}
+
+.content::before{display: none;}
+.content::after {content: "⪼ Área de Testes";}

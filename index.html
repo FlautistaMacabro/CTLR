@@ -12,37 +12,42 @@
 
 <body onload="callHome()">
     <div id="divgeral">
-        <nav>
-            <div id="divmenu">
-                <div class="divmenuitem">
-                    <a href="#Expressoes_Regulares">
-                        <option value="er" onclick="changeContent(this.value)">Expressões Lineares</option>
-                    </a>
+        <div id="divprinc">
+            <nav>
+                <div id="divmenu">
+                    <div class="divmenuitem">
+                        <a href="#Expressoes_Regulares">
+                            <option value="er" onclick="changeContent(this.value)">Expressões Lineares</option>
+                        </a>
+                    </div>
+                    <div class="divmenuitem">
+                        <a href="#Gramatica_Regular">
+                            <option value="gr" onclick="changeContent(this.value)">Gramática Regular</option>
+                        </a>
+                    </div>
+                    <div class="divmenuitem">
+                        <a href="#Automatos_Finitos">
+                            <option value="af" onclick="changeContent(this.value)">Autômatos Finitos</option>
+                        </a>
+                    </div>
                 </div>
-                <div class="divmenuitem">
-                    <a href="#Gramatica_Regular">
-                        <option value="gr" onclick="changeContent(this.value)">Gramática Regular</option>
-                    </a>
-                </div>
-                <div class="divmenuitem">
-                    <a href="#Automatos_Finitos">
-                        <option value="af" onclick="changeContent(this.value)">Autômatos Finitos</option>
-                    </a>
-                </div>
-            </div>
-        </nav>
-        <main>
-
-        </main>
+            </nav>
+            <main>
+    
+            </main>
+        </div>
         <aside>
             <div id="divtestarea">
                 <div id="divopentestarea">
-                    <button id="bttopentestarea"> ⪻ </button>
-                    <p id="popentestarea"> Área de Testes </p>
+                    <button id="bttopentestarea" onclick="toggleTestArea()">  </button>
+                </div>
+                <div id="divcontenttestarea" class="divcontenttestarea">
+                    
                 </div>
             </div>
         </aside>
     </div>
 </body>
 <script type="text/javascript" src="js/changePages.js"> </script>
+<script type="text/javascript" src="js/toggleTestArea.js"> </script>
 </html>

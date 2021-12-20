@@ -12,6 +12,16 @@ h1 {
   color: floralwhite;
 }
 
+input {
+  color: floralwhite;
+}
+
+button {
+  background: none;
+  border: none;
+  color: floralwhite;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -59,7 +69,7 @@ html, body {
 }
 
 .inputregrex {
-  width: 40vw;
+  width: 50vw;
   height: 9vh;
   font-size: 1.4em;
   padding-left: 15px;
@@ -67,7 +77,6 @@ html, body {
   border-style: unset;
   background-color: rgba(215, 85, 255, 0.274);
   border-color: rgba(215, 85, 255, 0.123);
-  color: floralwhite;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }

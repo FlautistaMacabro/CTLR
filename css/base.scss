@@ -1,6 +1,12 @@
 $fontFamily: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $fontColor: floralwhite;
-$backColor: rgba(193, 85, 255, 0.589);
+$rosaClaro: rgba(193, 85, 255, 0.589);
+$roxoClaro: rgba(215, 85, 255, 0.123);
+$roxoEscuro: rgba(215, 85, 255, 0.274);
+$roxoEscuro2: rgba(158, 39, 173, 0.11);
+$roxoEscuroForte: rgba(166, 36, 206, 0.486);
+$roxoEscuroForte2: rgba(151, 27, 189, 0.541);
+$roxoEscuroForte3: rgba(148, 24, 185, 0.616);
 
 @mixin placeholder {
     ::-webkit-input-placeholder {@content}
@@ -22,6 +28,16 @@ a {
 }
 
 h1 {
+    color: $fontColor;
+}
+
+input {
+    color: $fontColor;
+}
+
+button {
+    background: none;
+    border: none;
     color: $fontColor;
 }
 

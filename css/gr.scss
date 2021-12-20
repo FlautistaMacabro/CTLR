@@ -5,7 +5,7 @@ $paddingColumn: 10px;
 $borderWidthColumn: 2px;
 
 @mixin borderDivGrammarColumnM($direction) {
-    border-#{$direction}-color: rgba(158, 39, 173, 0.11);
+    border-#{$direction}-color: $roxoEscuro2;
     border-#{$direction}-width: $borderWidthColumn;
     border-#{$direction}-style: solid;
 }
@@ -33,13 +33,14 @@ $borderWidthColumn: 2px;
 #divgrammartable {
     @include tableTextGrammar();
     width: 100% - $marginLeft;
-    background-color: rgba(215, 85, 255, 0.123);
+    background-color: $roxoClaro;
     border-radius: $borderRadiusTable;
 }
 
 #divgrammarhead {
     @include displayGridAuto();
-    background-color: rgba(215, 85, 255, 0.274);
+    @include borderDivGrammarColumnM("top");
+    background-color: $roxoEscuro;
     border-top-left-radius: $borderRadiusTable;
     border-top-right-radius: $borderRadiusTable;
 }

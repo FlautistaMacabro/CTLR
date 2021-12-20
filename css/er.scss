@@ -15,18 +15,17 @@ $marginInputOthers: 25px;
 }
 
 .inputregrex{
-    width: 40vw;
+    width: 50vw;
     height: 9vh;
     font-size: 1.4em;
     padding-left: 15px;
     border-radius: 20px;
     border-style: unset;
-    background-color: rgba(215, 85, 255, 0.274);
-    border-color: rgba(215, 85, 255, 0.123);
+    background-color: $roxoEscuro;
+    border-color: $roxoClaro;
     &:focus{
         border-style: solid;
         border-width: 3px;
     }
-    color: $fontColor;
     transition: 0.2s;
 }

@@ -1,8 +1,20 @@
 function manipularTabela(event) {
+    // A tecla Tab é sempre ignorada neste processo
+    if(event.key == "Tab")
+        return;
     let input = event.target;
     let divLinha = (input.parentElement).parentElement;
     let divBody = divLinha.parentElement;
     let index = Array.prototype.indexOf.call(divBody.children, divLinha);
+    if(typeof manipularTabela.valueAnte == 'undefined')
+		manipularTabela.valueAnte = input.value;
+    // Input está vazio, a linha não é a primeira, e é desejado ser removido.
+    if((event.key == "Backspace" || event.key == "Clear" || event.key == "Delete") && index > 0 && !((manipularTabela.valueAnte).trim().length)){
+        divLinha.remove();
+        manipularTabela.valueAnte = input.value;
+        return;
+    }
+    manipularTabela.valueAnte = input.value;
     // Adicionando nova linha na tabela
     if(typeof divBody.children[index+1] === 'undefined'){
         // Add seta na coluna do meio da nova linha

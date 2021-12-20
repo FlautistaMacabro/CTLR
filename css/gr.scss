@@ -3,6 +3,7 @@
 $borderRadiusTable: 10px;
 $paddingColumn: 10px;
 $borderWidthColumn: 2px;
+$columnSize: 10vh;
 
 @mixin borderDivGrammarColumnM($direction) {
     border-#{$direction}-color: $roxoEscuro2;
@@ -17,12 +18,12 @@ $borderWidthColumn: 2px;
 
 @mixin columnTableGrammar {
     margin: 0;
-    width: 30vw;
+    width: $columnSize;
 }
 
 @mixin displayGridAuto {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto $columnSize auto;
 }
 
 #divgrammar {
@@ -62,7 +63,7 @@ $borderWidthColumn: 2px;
 
 .pgrammarcolumn {
     @include columnTableGrammar();
-    padding-left: 1vw;
+    padding-left: 19.2vw;
 }
 
 .pgrammarcolumnM {

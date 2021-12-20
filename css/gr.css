@@ -51,8 +51,8 @@ html, body {
 #divgrammarhead {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
+  -ms-grid-columns: auto 10vh auto;
+      grid-template-columns: auto 10vh auto;
   border-top-color: rgba(158, 39, 173, 0.11);
   border-top-width: 2px;
   border-top-style: solid;
@@ -64,8 +64,8 @@ html, body {
 .divgrammarrow {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
+  -ms-grid-columns: auto 10vh auto;
+      grid-template-columns: auto 10vh auto;
   border-top-color: rgba(158, 39, 173, 0.11);
   border-top-width: 2px;
   border-top-style: solid;
@@ -87,8 +87,8 @@ html, body {
 
 .pgrammarcolumn {
   margin: 0;
-  width: 30vw;
-  padding-left: 1vw;
+  width: 10vh;
+  padding-left: 19.2vw;
 }
 
 .pgrammarcolumnM {
@@ -97,7 +97,7 @@ html, body {
 
 .inputgrammarcolumn {
   margin: 0;
-  width: 30vw;
+  width: 10vh;
   text-align: center;
   font-size: large;
   border: none;

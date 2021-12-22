@@ -72,8 +72,9 @@ $columnSize: 10vh;
 }
 
 .inputgrammarcolumn {
-    @include columnTableGrammar();
     @include tableTextGrammar();
+    margin: 0;
+    width: 100%;
     border: none;
     color: $fontColor;
     background-color: transparent;

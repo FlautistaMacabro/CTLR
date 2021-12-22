@@ -1,6 +1,9 @@
 function manipularTabela(event) {
-    // A tecla Tab é sempre ignorada neste processo
-    if(event.key == "Tab")
+    // Iniciando Array de Rows para remoção de linhas da tabela
+    if(typeof(manipularTabela.arrayRows) == 'undefined')
+        manipularTabela.arrayRows = [];
+    // As teclas: Tab, CapsLock, Shift, Control são sempre ignoradas neste processo
+    if(event.key == "Tab" || event.key == "CapsLock" || event.key == "Shift" || event.key == "Control")
         return;
     let input = event.target;
     let divLinha = (input.parentElement).parentElement;
@@ -8,10 +11,14 @@ function manipularTabela(event) {
     let index = Array.prototype.indexOf.call(divBody.children, divLinha);
     // Input está vazio, a linha não é a primeira, e é desejado ser removido.
     if((event.key == "Backspace" || event.key == "Clear" || event.key == "Delete") && index > 0 && !((input.value).trim().length)){
-        divLinha.remove();
+        if(typeof(manipularTabela.arrayRows[index]) != 'undefined' && manipularTabela.arrayRows[index]){
+            manipularTabela.arrayRows[index] = false;
+            divLinha.remove();
+        }else manipularTabela.arrayRows[index] = true;
         return;
     }
     // Adicionando nova linha na tabela
+    manipularTabela.arrayRows[index] = false;
     if(typeof divBody.children[index+1] === 'undefined'){
         // Add seta na coluna do meio da nova linha
         (divLinha.children[1]).children[0].innerHTML = "➝";

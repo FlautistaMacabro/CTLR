@@ -97,10 +97,10 @@ html, body {
 }
 
 .inputgrammarcolumn {
-  margin: 0;
-  width: 10vh;
   text-align: center;
   font-size: large;
+  margin: 0;
+  width: 100%;
   border: none;
   color: floralwhite;
   background-color: transparent;

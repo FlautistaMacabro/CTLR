@@ -8,6 +8,7 @@ $menuPaddingSize: 3vh;
 
 body {
     background-color: $rosaClaro;
+    overflow: hidden;
 }
 
 object {
@@ -84,7 +85,7 @@ option {
     }
 }
 
-.divcontenttestarea { 
+.divcontenttestarea {
     width: 0; 
     transition: 0.3s;
 }

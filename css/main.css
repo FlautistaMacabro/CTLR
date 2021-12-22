@@ -33,6 +33,7 @@ html, body {
 
 body {
   background-color: rgba(193, 85, 255, 0.589);
+  overflow: hidden;
 }
 
 object {

@@ -1,0 +1,87 @@
+* {
+  outline: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: floralwhite;
+}
+
+h1 {
+  color: floralwhite;
+}
+
+input {
+  color: floralwhite;
+}
+
+button {
+  background: none;
+  border: none;
+  color: floralwhite;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: floralwhite;
+  height: 100%;
+  width: 100%;
+}
+
+#divtestareatable {
+  text-align: center;
+  font-size: large;
+  width: 100%;
+  background-color: #cd56dd;
+}
+
+#divtestareahead {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  border-top-color: rgba(207, 103, 221, 0.49);
+  border-top-width: 2px;
+  border-top-style: solid;
+  background-color: #be43ce;
+}
+
+.divtestarearow {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  border-top-color: rgba(207, 103, 221, 0.49);
+  border-top-width: 2px;
+  border-top-style: solid;
+}
+
+.divtestareacolumn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 14.9vw;
+}
+
+.divtestareacolumn:nth-of-type(2n+1) {
+  border-right-color: rgba(207, 103, 221, 0.49);
+  border-right-width: 2px;
+  border-right-style: solid;
+}
+
+.ptestareacolumn {
+  margin: 0;
+}
+
+.inputtestareacolumn {
+  text-align: center;
+  font-size: large;
+  margin: 0;
+  width: 100%;
+  border: none;
+  color: floralwhite;
+  background-color: transparent;
+  padding: 0;
+}
+/*# sourceMappingURL=areaTestes.css.map */

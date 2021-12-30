@@ -1,13 +1,27 @@
+function removeAllChildren(element) {
+    let child = element.lastElementChild;
+    while (child) {
+        element.removeChild(child);
+        child = element.lastElementChild;
+    }
+}
+
 function callHome(){
-    document.getElementsByTagName("main")[0].innerHTML = '<object type="text/html" data="er.html"></object>';
+    let main = document.getElementsByTagName("main")[0];
+    removeAllChildren(main);
+    let object = document.createElement('object');
+    object.setAttribute('id','er');
+    object.setAttribute('type','text/html');
+    object.setAttribute('data','er.html');
+    main.appendChild(object);
 }
 
 function changeContent(valor) {
-    if (valor == "er")
-        document.getElementsByTagName("main")[0].innerHTML = '<object type="text/html" data="er.html"></object>';
-    else if (valor == "gr") 
-        document.getElementsByTagName("main")[0].innerHTML = '<object type="text/html" data="gr.html"></object>';
-    else if (valor == "af")
-        document.getElementsByTagName("main")[0].innerHTML = '<object type="text/html" data="af.html"></object>';
-    else alert("!!! Erro de redirecionamento !!!");
+    let main = document.getElementsByTagName("main")[0];
+    removeAllChildren(main);
+    let object = document.createElement('object');
+    object.setAttribute('id',`${valor}`);
+    object.setAttribute('type','text/html');
+    object.setAttribute('data',`${valor}.html`);
+    main.appendChild(object);
 }

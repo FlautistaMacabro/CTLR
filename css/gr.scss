@@ -1,25 +1,7 @@
-@import 'base';
+@import 'base_tabelas';
 @import 'regulars_base';
 $borderRadiusTable: 10px;
-$paddingColumn: 10px;
-$borderWidthColumn: 2px;
 $columnSize: 10vh;
-
-@mixin borderDivGrammarColumnM($direction) {
-    border-#{$direction}-color: $roxoEscuro2;
-    border-#{$direction}-width: $borderWidthColumn;
-    border-#{$direction}-style: solid;
-}
-
-@mixin tableTextGrammar {
-    text-align: center;
-    font-size: large;
-}
-
-@mixin columnTableGrammar {
-    margin: 0;
-    width: $columnSize;
-}
 
 @mixin displayGridAuto {
     display: grid;
@@ -40,7 +22,7 @@ $columnSize: 10vh;
 
 #divgrammarhead {
     @include displayGridAuto();
-    @include borderDivGrammarColumnM("top");
+    @include borderDivGrammarColumnM("top", $roxoEscuro2);
     background-color: $roxoEscuro;
     border-top-left-radius: $borderRadiusTable;
     border-top-right-radius: $borderRadiusTable;
@@ -48,7 +30,7 @@ $columnSize: 10vh;
 
 .divgrammarrow {
     @include displayGridAuto();
-    @include borderDivGrammarColumnM("top");
+    @include borderDivGrammarColumnM("top", $roxoEscuro2);
 }
 
 .divgrammarcolumn {
@@ -57,12 +39,13 @@ $columnSize: 10vh;
 }
 
 .divgrammarcolumnM {
-    @include borderDivGrammarColumnM("right");
-    @include borderDivGrammarColumnM("left");
+    @include borderDivGrammarColumnM("right", $roxoEscuro2);
+    @include borderDivGrammarColumnM("left", $roxoEscuro2);
 }
 
 .pgrammarcolumn {
-    @include columnTableGrammar();
+    margin: 0;
+    width: $columnSize;
     padding-left: 19.2vw;
 }
 
@@ -72,12 +55,6 @@ $columnSize: 10vh;
 }
 
 .inputgrammarcolumn {
-    @include tableTextGrammar();
-    margin: 0;
-    width: 100%;
-    border: none;
-    color: $fontColor;
-    background-color: transparent;
-    padding: 0;
+    @include inputColumn();
 }
 

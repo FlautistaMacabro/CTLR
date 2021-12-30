@@ -1,0 +1,25 @@
+@import 'base';
+
+$borderWidthColumn: 2px;
+$paddingColumn: 10px;
+
+@mixin tableTextGrammar {
+    text-align: center;
+    font-size: large;
+}
+
+@mixin borderDivGrammarColumnM($direction, $color) {
+    border-#{$direction}-color: $color;
+    border-#{$direction}-width: $borderWidthColumn;
+    border-#{$direction}-style: solid;
+}
+
+@mixin inputColumn {
+    @include tableTextGrammar();
+    margin: 0;
+    width: 100%;
+    border: none;
+    color: $fontColor;
+    background-color: transparent;
+    padding: 0;
+}

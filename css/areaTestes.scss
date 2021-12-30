@@ -1,51 +1,38 @@
-@import 'base';
+@import 'base_tabelas';
+
+@mixin displayGridAuto {
+    display: grid;
+    grid-template-columns: auto auto;
+}
 
 #divtestareatable {
-    text-align: center;
-    font-size: large;
+    @include tableTextGrammar();
     width: 100%;
-    background-color: #cd56dd;
+    background-color: $rosaEscuroSemTransparencia;
 }
 
 #divtestareahead {
-    display: grid;
-    grid-template-columns: auto auto;
-    border-top-color: rgba(207, 103, 221, 0.49);
-    border-top-width: 2px;
-    border-top-style: solid;
-    background-color: rgb(190, 67, 206);
+    @include displayGridAuto();
+    @include borderDivGrammarColumnM('top', $rosaEscuro);
+    background-color: $roxoEscuroSemTransparencia;
 }
 
 .divtestarearow {
-    display: grid;
-    grid-template-columns: auto auto;
-    border-top-color: rgba(207, 103, 221, 0.49);
-    border-top-width: 2px;
-    border-top-style: solid;
+    @include displayGridAuto();
+    @include borderDivGrammarColumnM('top', $rosaEscuro);
 }
 
 .divtestareacolumn {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: $paddingColumn;
+    padding-bottom: $paddingColumn;
     width: 14.9vw;
     &:nth-of-type(2n+1){
-        border-right-color: rgba(207, 103, 221, 0.49);
-        border-right-width: 2px;
-        border-right-style: solid;
+        @include borderDivGrammarColumnM('right', $rosaEscuro);
     }
 }
 
-.ptestareacolumn {
-    margin: 0;
-}
+.ptestareacolumn { margin: 0; }
 
 .inputtestareacolumn {
-    text-align: center;
-    font-size: large;
-    margin: 0;
-    width: 100%;
-    border: none;
-    color: $fontColor;
-    background-color: transparent;
-    padding: 0;
+    @include inputColumn();
 }

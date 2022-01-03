@@ -1,5 +1,8 @@
 @import 'base_tabelas';
 
+$boxShadowBttSize1: 5px;
+$boxShadowBttSize2: 8px;
+
 @mixin displayGridAuto {
     display: grid;
     grid-template-columns: auto auto;
@@ -15,6 +18,33 @@
     @include displayGridAuto();
     @include borderDivGrammarColumnM('top', $rosaEscuro);
     background-color: $roxoEscuroSemTransparencia;
+}
+
+#divtestareabtt {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#bttenviartestes {
+    width: 8vw;
+    height: 50px;
+    font-size: large;
+    font-weight: 400;
+    border-radius: 0 10px 0 10px;
+    background-color: $roxoEscuro3;
+    box-shadow: $boxShadowBttSize1 $boxShadowBttSize2 $roxoEscuroForte;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        background-color: $roxoEscuroForte;
+        box-shadow: $boxShadowBttSize1 $boxShadowBttSize2 $roxoEscuroForte2;
+    }
+    &:active {
+        background-color: $roxoEscuroForte2;
+        box-shadow: $boxShadowBttSize1 $boxShadowBttSize2 $roxoEscuroForte3;
+    }
 }
 
 .divtestarearow {

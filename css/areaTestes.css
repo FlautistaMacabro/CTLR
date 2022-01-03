@@ -48,6 +48,40 @@ html, body {
   background-color: #be43ce;
 }
 
+#divtestareabtt {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#bttenviartestes {
+  width: 8vw;
+  height: 50px;
+  font-size: large;
+  font-weight: 400;
+  border-radius: 0 10px 0 10px;
+  background-color: rgba(190, 65, 221, 0.6);
+  -webkit-box-shadow: 5px 8px rgba(166, 36, 206, 0.486);
+          box-shadow: 5px 8px rgba(166, 36, 206, 0.486);
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#bttenviartestes:hover {
+  background-color: rgba(166, 36, 206, 0.486);
+  -webkit-box-shadow: 5px 8px rgba(151, 27, 189, 0.541);
+          box-shadow: 5px 8px rgba(151, 27, 189, 0.541);
+}
+
+#bttenviartestes:active {
+  background-color: rgba(151, 27, 189, 0.541);
+  -webkit-box-shadow: 5px 8px rgba(148, 24, 185, 0.616);
+          box-shadow: 5px 8px rgba(148, 24, 185, 0.616);
+}
+
 .divtestarearow {
   display: -ms-grid;
   display: grid;

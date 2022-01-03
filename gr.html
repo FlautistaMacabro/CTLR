@@ -1,33 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/areaTestes.css">
     <link rel="stylesheet" href="css/gr.css">
+    <meta name="autor" content="Gabriel Prado Branco Araujo,Vinícius Pelegrineli Bombarda" />
+    <title> Linguagens Regulares </title>
 </head>
-<div id="divgrammar">
-    <div id="divgrammartable">
-        <div id="divgrammarhead">
-            <div class="divgrammarcolumn">
-                <p class="pgrammarcolumn">LHS</p>
-            </div>
-            <div class="divgrammarcolumn divgrammarcolumnM">
-                <p class="pgrammarcolumn"></p>
-            </div>
-            <div class="divgrammarcolumn">
-                <p class="pgrammarcolumn">RHS</p>
-            </div>
+
+<body>
+    <div id="divgeral">
+        <div id="divprinc">
+            <nav>
+                <div id="divmenu">
+                    <div class="divmenuitem">
+                        <a href="index.html">
+                            Expressões Lineares
+                        </a>
+                    </div>
+                    <div class="divmenuitem">
+                        <a href="gr.html">
+                            Gramática Regular
+                        </a>
+                    </div>
+                    <div class="divmenuitem">
+                        <a href="af.html">
+                            Autômatos Finitos
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <main>
+                <div id="divgrammar">
+                    <div id="divgrammartable">
+                        <div id="divgrammarhead">
+                            <div class="divgrammarcolumn">
+                                <p class="pgrammarcolumn">LHS</p>
+                            </div>
+                            <div class="divgrammarcolumn divgrammarcolumnM">
+                                <p class="pgrammarcolumn"></p>
+                            </div>
+                            <div class="divgrammarcolumn">
+                                <p class="pgrammarcolumn">RHS</p>
+                            </div>
+                        </div>
+                        <div id="divgrammarbody">
+                            <div class="divgrammarrow">
+                                <div class="divgrammarcolumn">
+                                    <input type="text" class="inputgrammarcolumn">
+                                </div>
+                                <div class="divgrammarcolumn divgrammarcolumnM">
+                                    <p class="pgrammarcolumn pgrammarcolumnM"></p>
+                                </div>
+                                <div class="divgrammarcolumn">
+                                    <input type="text" class="inputgrammarcolumn"> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
-        <div id="divgrammarbody">
-            <div class="divgrammarrow">
-                <div class="divgrammarcolumn">
-                    <input type="text" class="inputgrammarcolumn">
+        <aside>
+            <div id="divtestarea">
+                <div id="divopentestarea">
+                    <button id="bttopentestarea" onclick="toggleTestArea()">  </button>
                 </div>
-                <div class="divgrammarcolumn divgrammarcolumnM">
-                    <p class="pgrammarcolumn pgrammarcolumnM"></p>
-                </div>
-                <div class="divgrammarcolumn">
-                    <input type="text" class="inputgrammarcolumn"> 
+                <div id="divcontenttestarea" class="divcontenttestarea">
+                    <div id="divtestareatable">
+                        <div id="divtestareahead">
+                            <div class="divtestareacolumn">
+                                <p class="ptestareacolumn">Entrada</p>
+                            </div>
+                            <div class="divtestareacolumn">
+                                <p class="ptestareacolumn">Saída</p>
+                            </div>
+                        </div>
+                        <div id="divtestareabody">
+                            <div class="divtestarearow">
+                                <div class="divtestareacolumn">
+                                    <input type="text" class="inputtestareacolumn">
+                                </div>
+                                <div class="divtestareacolumn">
+                                    <p class="ptestareacolumn"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="bttenviartestes"> Enviar </button>
                 </div>
             </div>
-        </div>
+        </aside>
     </div>
-</div>
-<script type="text/javascript" src="js/autoFocus/autoFocusGR.js"> </script>
+</body>
+<script type="text/javascript" src="js/util.js"> </script>
+<script type="text/javascript" src="js/toggleTestArea.js"> </script>
+<script type="text/javascript" src="js/TableManipulation/testAreaTableManipulation.js"> </script>
+<script type="text/javascript" src="js/testAreaRun/runGRtests.js"> </script>
 <script type="text/javascript" src="js/TableManipulation/grammarTableManipulation.js"> </script>
+<script type="text/javascript" src="js/autoFocus/autoFocusGR.js"> </script>
+</html>

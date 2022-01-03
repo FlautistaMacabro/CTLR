@@ -7,34 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/areaTestes.css">
+    <link rel="stylesheet" href="css/er.css">
     <meta name="autor" content="Gabriel Prado Branco Araujo,Vinícius Pelegrineli Bombarda" />
     <title> Linguagens Regulares </title>
 </head>
 
-<body onload="callHome()">
+<body>
     <div id="divgeral">
         <div id="divprinc">
             <nav>
                 <div id="divmenu">
                     <div class="divmenuitem">
-                        <a href="#Expressoes_Regulares">
-                            <option value="er" onclick="changeContent(this.value)">Expressões Lineares</option>
+                        <a href="index.html">
+                            Expressões Lineares
                         </a>
                     </div>
                     <div class="divmenuitem">
-                        <a href="#Gramatica_Regular">
-                            <option value="gr" onclick="changeContent(this.value)">Gramática Regular</option>
+                        <a href="gr.html">
+                            Gramática Regular
                         </a>
                     </div>
                     <div class="divmenuitem">
-                        <a href="#Automatos_Finitos">
-                            <option value="af" onclick="changeContent(this.value)">Autômatos Finitos</option>
+                        <a href="af.html">
+                            Autômatos Finitos
                         </a>
                     </div>
                 </div>
             </nav>
             <main>
-    
+                <div id="divinputregrex">
+                    <input class="inputregrex" type="text" placeholder="Insira a regra aqui..." autofocus>
+                    <input class="inputregrex" type="text" placeholder="Insira um teste aqui...">
+                    <input class="inputregrex" type="text" placeholder="Insira um outro teste aqui...">
+                </div>
             </main>
         </div>
         <aside>
@@ -70,8 +75,9 @@
     </div>
 </body>
 <script type="text/javascript" src="js/util.js"> </script>
-<script type="text/javascript" src="js/changePages.js"> </script>
 <script type="text/javascript" src="js/toggleTestArea.js"> </script>
 <script type="text/javascript" src="js/TableManipulation/testAreaTableManipulation.js"> </script>
-<script type="text/javascript" src="js/identificarBttTestes.js"> </script>
+<script type="text/javascript" src="js/testAreaRun/runERtests.js"> </script>
+<script type="text/javascript" src="js/regrexInterpreter.js"> </script>
+<script type="text/javascript" src="js/autoFocus/autoFocusER.js"> </script>
 </html>

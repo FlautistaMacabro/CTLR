@@ -31,7 +31,7 @@ html, body {
 }
 
 html, body {
-  height: 97%;
+  height: 100%;
   width: 100%;
 }
 
@@ -74,7 +74,8 @@ html, body {
   font-size: 1.4em;
   padding-left: 15px;
   border-radius: 20px;
-  border-style: unset;
+  border-style: solid;
+  border-width: 2px;
   background-color: rgba(215, 85, 255, 0.274);
   border-color: rgba(215, 85, 255, 0.123);
   -webkit-transition: 0.2s;

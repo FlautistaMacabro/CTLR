@@ -20,7 +20,8 @@ $marginInputOthers: 25px;
     font-size: 1.4em;
     padding-left: 15px;
     border-radius: 20px;
-    border-style: unset;
+    border-style: solid;
+    border-width: 2px;
     background-color: $roxoEscuro;
     border-color: $roxoClaro;
     &:focus{

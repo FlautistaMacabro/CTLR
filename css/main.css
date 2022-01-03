@@ -36,12 +36,11 @@ body {
   overflow: hidden;
 }
 
-object {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
+/*object {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}*/
 aside {
   z-index: 1;
   height: 100%;
@@ -49,13 +48,6 @@ aside {
 
 nav {
   background-color: rgba(215, 85, 255, 0.123);
-}
-
-option {
-  padding-top: 3vh;
-  padding-bottom: 3vh;
-  padding-left: 25px;
-  font-weight: 400;
 }
 
 #divgeral {
@@ -144,6 +136,13 @@ option {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 1.3vw;
+}
+
+.divmenuitem {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  padding-left: 25px;
+  font-weight: 400;
 }
 
 .divmenuitem:hover {

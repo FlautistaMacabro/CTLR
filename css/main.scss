@@ -11,11 +11,11 @@ body {
     overflow: hidden;
 }
 
-object {
+/*object {
     height: 100%;
     width: 100%;
     overflow: hidden;
-}
+}*/
 
 aside {
     z-index: 1;
@@ -24,13 +24,6 @@ aside {
 
 nav {
     background-color:  $roxoClaro;
-}
-
-option {
-    padding-top: $menuPaddingSize;
-    padding-bottom: $menuPaddingSize;
-    padding-left: 25px;
-    font-weight: 400;
 }
 
 #divgeral {
@@ -101,6 +94,10 @@ option {
         transition: 0.25s;
         background-color: $roxoEscuro;
     }
+    padding-top: $menuPaddingSize;
+    padding-bottom: $menuPaddingSize;
+    padding-left: 25px;
+    font-weight: 400;
 }
 
 // Para mudanças

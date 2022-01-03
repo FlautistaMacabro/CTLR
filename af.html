@@ -1,6 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/areaTestes.css">
     <link rel="stylesheet" href="css/af.css">
+    <meta name="autor" content="Gabriel Prado Branco Araujo,Vinícius Pelegrineli Bombarda" />
+    <title> Linguagens Regulares </title>
 </head>
-<div id="divautomato">
-    <h1>Autômatos Finitos</h1>
-</div>
+
+<body>
+    <div id="divgeral">
+        <div id="divprinc">
+            <nav>
+                <div id="divmenu">
+                    <div class="divmenuitem">
+                        <a href="index.html">
+                            Expressões Lineares
+                        </a>
+                    </div>
+                    <div class="divmenuitem">
+                        <a href="gr.html">
+                            Gramática Regular
+                        </a>
+                    </div>
+                    <div class="divmenuitem">
+                        <a href="af.html">
+                            Autômatos Finitos
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <main>
+                <div id="divautomato">
+                    <h1>Autômatos Finitos</h1>
+                </div>
+            </main>
+        </div>
+        <aside>
+            <div id="divtestarea">
+                <div id="divopentestarea">
+                    <button id="bttopentestarea" onclick="toggleTestArea()">  </button>
+                </div>
+                <div id="divcontenttestarea" class="divcontenttestarea">
+                    <div id="divtestareatable">
+                        <div id="divtestareahead">
+                            <div class="divtestareacolumn">
+                                <p class="ptestareacolumn">Entrada</p>
+                            </div>
+                            <div class="divtestareacolumn">
+                                <p class="ptestareacolumn">Saída</p>
+                            </div>
+                        </div>
+                        <div id="divtestareabody">
+                            <div class="divtestarearow">
+                                <div class="divtestareacolumn">
+                                    <input type="text" class="inputtestareacolumn">
+                                </div>
+                                <div class="divtestareacolumn">
+                                    <p class="ptestareacolumn"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="bttenviartestes"> Enviar </button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+<script type="text/javascript" src="js/util.js"> </script>
+<script type="text/javascript" src="js/toggleTestArea.js"> </script>
+<script type="text/javascript" src="js/TableManipulation/testAreaTableManipulation.js"> </script>
+<script type="text/javascript" src="js/testAreaRun/runAFtests.js"> </script>
+</html>

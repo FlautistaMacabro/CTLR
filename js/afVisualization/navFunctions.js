@@ -1,4 +1,19 @@
-var quantNodes = 0;
+function getNodeID() {
+    let nodes = cy.nodes();
+    let flag = false;
+    let i = 0;
+    for (; i < nodes.length; i++) {
+        for (let j = 0; j < nodes.length; j++)
+            if(`q${i}` == nodes[j].id()){
+                flag = true;
+                break;
+            }
+        if(!flag)
+            return i;
+        flag = false;
+    }
+    return i;
+}
 
 function selectBtt(btt) {
     cy.removeAllListeners();
@@ -16,13 +31,12 @@ function addNodeBtt(btt) {
         if(evtTarget === cy){
             cy.add({
                 group: 'nodes',
-                data: { id: `q${quantNodes}`, weight: 75 },
+                data: { id: `q${getNodeID()}`, weight: 75 },
                 renderedPosition: {
                     x: event.renderedPosition.x,
                     y: event.renderedPosition.y,
                 }
             });
-            quantNodes++;
         }
     });
 }
@@ -33,6 +47,11 @@ function addArrowBtt(btt) {
 
 function removeBtt(btt) {
     cy.removeAllListeners();
+    cy.on('tap', function(event){
+        var evtTarget = event.target;
+        if(evtTarget !== cy )
+            cy.remove(evtTarget);
+    });
 }
 
 

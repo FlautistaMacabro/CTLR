@@ -1,3 +1,13 @@
+function cursorPointerOverNode() {
+    cy.on('mouseover', 'node', function (event) {                            
+        (event.cy.container()).style.cursor = 'pointer';
+    } );
+    
+    cy.on('mouseout', 'node', function (event) {
+        (event.cy.container()).style.cursor = 'default';
+    });    
+}
+
 function getNodeID() {
     let nodes = cy.nodes();
     let flag = false;
@@ -15,12 +25,37 @@ function getNodeID() {
     return i;
 }
 
+function getEdgeID() {
+    let edges = cy.edges();
+    let flag = false;
+    let i = 0;
+    for (; i < edges.length; i++) {
+        for (let j = 0; j < edges.length; j++)
+            if(`e${i}` == edges[j].id()){
+                flag = true;
+                break;
+            }
+        if(!flag)
+            return i;
+        flag = false;
+    }
+    return i;
+}
+
+function defaultNodeColorWithID(numClick) {
+    cy.nodes(`[id = "${numClick}"]`).style({
+        'background-color': '#666'
+    });
+    return false;
+}
+
 function selectBtt(btt) {
     cy.removeAllListeners();
 }
 
 function editBtt(btt) {
     cy.removeAllListeners();
+    cursorPointerOverNode();
 }
 
 function addNodeBtt(btt) {
@@ -43,10 +78,33 @@ function addNodeBtt(btt) {
 
 function addArrowBtt(btt) {
     cy.removeAllListeners();
+    cursorPointerOverNode();
+    if(typeof(addArrowBtt.numClick) == 'undefined')
+        addArrowBtt.numClick = false;
+    cy.on('tap', function(event){
+        var evtTarget = event.target;
+        if(evtTarget !== cy)
+            if(evtTarget.isNode())
+                if(addArrowBtt.numClick == false){
+                    addArrowBtt.numClick = evtTarget.id();
+                    evtTarget.style({
+                        'background-color': 'lightblue'
+                    });
+                }else {
+                    cy.add({
+                        group: 'edges',
+                        data: { id: `e${getEdgeID()}`, source: `${addArrowBtt.numClick}`, target: `${evtTarget.id()}` }
+                    });
+                    addArrowBtt.numClick = defaultNodeColorWithID(addArrowBtt.numClick);
+                }
+            else addArrowBtt.numClick = defaultNodeColorWithID(addArrowBtt.numClick);
+        else addArrowBtt.numClick = defaultNodeColorWithID(addArrowBtt.numClick);
+    });
 }
 
 function removeBtt(btt) {
     cy.removeAllListeners();
+    cursorPointerOverNode();
     cy.on('tap', function(event){
         var evtTarget = event.target;
         if(evtTarget !== cy )

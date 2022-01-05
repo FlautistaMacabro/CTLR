@@ -33,6 +33,7 @@ html, body {
 #divtestareatable {
   text-align: center;
   font-size: large;
+  display: none;
   width: 100%;
   background-color: #cd56dd;
 }
@@ -49,8 +50,7 @@ html, body {
 }
 
 #divtestareabtt {
-  display: -ms-grid;
-  display: grid;
+  display: none;
   place-items: center;
   width: 100%;
   margin-top: 20px;

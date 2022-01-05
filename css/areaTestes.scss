@@ -10,6 +10,7 @@ $boxShadowBttSize2: 8px;
 
 #divtestareatable {
     @include tableTextGrammar();
+    display: none;
     width: 100%;
     background-color: $rosaEscuroSemTransparencia;
 }
@@ -21,7 +22,7 @@ $boxShadowBttSize2: 8px;
 }
 
 #divtestareabtt {
-    display: grid;
+    display: none;
     place-items: center;
     width: 100%;
     margin-top: 20px;

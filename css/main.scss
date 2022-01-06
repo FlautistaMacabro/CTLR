@@ -1,14 +1,8 @@
 @import 'base';
 $menuPaddingSize: 3vh;
 
-@mixin FullScreen() {
-    width: 100%;
-    height: 100%;
-}
-
 body {
     background-color: $rosaClaro;
-    overflow: hidden;
 }
 
 /*object {
@@ -24,6 +18,10 @@ aside {
 
 nav {
     background-color:  $roxoClaro;
+}
+
+main {
+    position: relative;
 }
 
 #divgeral {
@@ -91,9 +89,10 @@ nav {
 
 .divmenuitem {
     &:hover{
-        transition: 0.25s;
         background-color: $roxoEscuro;
     }
+    cursor: pointer;
+    transition: 0.25s;
     padding-top: $menuPaddingSize;
     padding-bottom: $menuPaddingSize;
     padding-left: 25px;

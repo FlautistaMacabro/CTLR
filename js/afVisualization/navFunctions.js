@@ -49,17 +49,59 @@ function defaultNodeColorWithID(numClick) {
     return false;
 }
 
+function mostrarDivEditNode(divEditNode, x, y) {
+    divEditNode.style.left = `${x}px`;
+    divEditNode.style.top = `${y}px`;
+    divEditNode.style.display = 'flex';
+}
+
+var nodeAnteEdit = false;
+
+function esconderDivEditNode() {
+    document.getElementById('diveditnode').style.display = 'none';
+    nodeAnteEdit = false;
+}
+
 function selectBtt(btt) {
     cy.removeAllListeners();
+    esconderDivEditNode();
 }
 
 function editBtt(btt) {
     cy.removeAllListeners();
     cursorPointerOverNode();
+    if(typeof(editBtt.nodeAnteID) == 'undefined'){
+        editBtt.nodeAnteID = '';
+        nodeAnteEdit = false;
+    }
+    cy.on('tap', function(event){
+        var evtTarget = event.target;
+        let divEditNode = document.getElementById('diveditnode');
+        if(evtTarget !== cy)
+            if(evtTarget.isNode())
+                if(editBtt.nodeAnteID == evtTarget.id())
+                    if(nodeAnteEdit == true)
+                        esconderDivEditNode();
+                    else {
+                        mostrarDivEditNode(divEditNode, event.renderedPosition.x, event.renderedPosition.y);
+                        nodeAnteEdit = true;
+                    }
+                else {
+                    mostrarDivEditNode(divEditNode, event.renderedPosition.x, event.renderedPosition.y);
+                    editBtt.nodeAnteID = evtTarget.id();
+                    nodeAnteEdit = true;
+                }
+                /*evtTarget.style({
+                        'background-color': 'lightblue'
+                    });*/
+            else esconderDivEditNode();
+        else esconderDivEditNode();
+    });
 }
 
 function addNodeBtt(btt) {
     cy.removeAllListeners();
+    esconderDivEditNode();
     cy.on('tap', function(event){
         var evtTarget = event.target;
         
@@ -79,6 +121,7 @@ function addNodeBtt(btt) {
 function addArrowBtt(btt) {
     cy.removeAllListeners();
     cursorPointerOverNode();
+    esconderDivEditNode();
     if(typeof(addArrowBtt.numClick) == 'undefined')
         addArrowBtt.numClick = false;
     cy.on('tap', function(event){
@@ -109,13 +152,13 @@ function addArrowBtt(btt) {
 function removeBtt(btt) {
     cy.removeAllListeners();
     cursorPointerOverNode();
+    esconderDivEditNode();
     cy.on('tap', function(event){
         var evtTarget = event.target;
         if(evtTarget !== cy )
             cy.remove(evtTarget);
     });
 }
-
 
 window.addEventListener('load', function init() {
     let btts = document.querySelectorAll(".cynavbtt");

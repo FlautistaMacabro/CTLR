@@ -37,14 +37,24 @@
             <main>
                 <div id="divautomato">
                     <div id="cynav">
-                        <a id="selectbtt" href="#selectbtt" class="cynavbtt"> ⮞ </a>
-                        <a id="editbtt" href="#editbtt" class="cynavbtt"> ✎ </a>
-                        <a id="addnodebtt" href="#addnodebtt" class="cynavbtt"> + </a>
-                        <a id="addarrowbtt" href="#addarrowbtt" class="cynavbtt"> ⮕ </a>
-                        <a id="removebtt" href="#removebtt" class="cynavbtt"> ✖ </a>
+                        <button id="selectbtt"  class="cynavbtt"> ⮞ </button>
+                        <button id="editbtt" class="cynavbtt"> ✎ </button>
+                        <button id="addnodebtt" class="cynavbtt"> + </button>
+                        <button id="addarrowbtt" class="cynavbtt"> ⮕ </button>
+                        <button id="removebtt" class="cynavbtt"> ✖ </button>
                     </div>
                     <div id="cy">
 
+                    </div>
+                </div>
+                <div id="diveditnode" class="diveditnode">
+                    <div class="divinputeditnode">
+                        <input type="checkbox" id="inputinitialnode" class="inputeditnode">
+                        <label for="inputinitialnode"> Inicial </label>
+                    </div>
+                    <div class="divinputeditnode">
+                        <input type="checkbox" id="inputfinalnode" class="inputeditnode">
+                        <label for="inputfinalnode"> Final </label>
                     </div>
                 </div>
             </main>
@@ -83,11 +93,13 @@
         </aside>
     </div>
 </body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cytoscape@3.20.0/dist/cytoscape.min.js"> </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.8.5/cytoscape.min.js"> </script>
 <script type="text/javascript" src="js/afVisualization/inicialization.js"> </script>
 <script type="text/javascript" src="js/afVisualization/navFunctions.js"> </script>
 <script type="text/javascript" src="js/util.js"> </script>
 <script type="text/javascript" src="js/toggleTestArea.js"> </script>
 <script type="text/javascript" src="js/TableManipulation/testAreaTableManipulation.js"> </script>
 <script type="text/javascript" src="js/testAreaRun/runAFtests.js"> </script>
+<script type="text/javascript" src="js/autoFocus/autoFocusAF.js"> </script>
+<script type="text/javascript" src="js/menuAFBttlogic.js"> </script>
 </html>

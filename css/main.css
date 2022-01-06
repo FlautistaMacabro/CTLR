@@ -33,7 +33,6 @@ html, body {
 
 body {
   background-color: rgba(193, 85, 255, 0.589);
-  overflow: hidden;
 }
 
 /*object {
@@ -48,6 +47,10 @@ aside {
 
 nav {
   background-color: rgba(215, 85, 255, 0.123);
+}
+
+main {
+  position: relative;
 }
 
 #divgeral {
@@ -139,6 +142,9 @@ nav {
 }
 
 .divmenuitem {
+  cursor: pointer;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
   padding-top: 3vh;
   padding-bottom: 3vh;
   padding-left: 25px;
@@ -146,8 +152,6 @@ nav {
 }
 
 .divmenuitem:hover {
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
   background-color: rgba(215, 85, 255, 0.274);
 }
 

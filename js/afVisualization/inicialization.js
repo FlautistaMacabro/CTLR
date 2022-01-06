@@ -30,7 +30,10 @@ var cy = cytoscape({
           'line-color': '#ccc',
           'target-arrow-color': '#ccc',
           'target-arrow-shape': 'triangle',
-          'curve-style': 'bezier'
+          'curve-style': 'bezier',
+          'label': 'data(label)',
+          'font-size': '20px',
+          'color': '#777'
         }
       }
     ],

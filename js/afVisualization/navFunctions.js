@@ -91,9 +91,13 @@ function addArrowBtt(btt) {
                         'background-color': 'lightblue'
                     });
                 }else {
+                    let labelAux = prompt('Digite o caractere da transição (deixe vazio para transição nula):');
+                    if(!labelAux)
+                        labelAux = 'λ';
                     cy.add({
                         group: 'edges',
-                        data: { id: `e${getEdgeID()}`, source: `${addArrowBtt.numClick}`, target: `${evtTarget.id()}` }
+                        data: { id: `e${getEdgeID()}`, source: `${addArrowBtt.numClick}`, target: `${evtTarget.id()}`,
+                                label: `${labelAux}` }
                     });
                     addArrowBtt.numClick = defaultNodeColorWithID(addArrowBtt.numClick);
                 }

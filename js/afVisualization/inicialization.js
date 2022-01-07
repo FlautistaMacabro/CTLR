@@ -11,6 +11,12 @@ var cy = cytoscape({
         style: {
           'background-color': '#666',
           'label': 'data(id)'
+          /*'border-style': 'double',
+          'border-width': '2px',
+          'border-color': 'black',
+          'background-image': ['/images/right_arrow.png'],
+          'background-width': '60%',
+          'background-height': '70%'*/
         }
       },
   

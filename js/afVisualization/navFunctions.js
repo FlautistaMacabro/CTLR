@@ -55,6 +55,13 @@ function mostrarDivEditNode(divEditNode, x, y) {
     divEditNode.style.display = 'flex';
 }
 
+function setDivEditFinalInitial(evtTarget) {
+    let inputInitial = document.getElementById('inputinitialnode');
+    let inputFinal = document.getElementById('inputfinalnode');
+    evtTarget.style('background-image') != 'none' ? inputInitial.checked = true : inputInitial.checked = false;
+    evtTarget.style('border-style') == 'double' ? inputFinal.checked = true : inputFinal.checked = false;
+}
+
 var nodeAnteEdit = false;
 
 function esconderDivEditNode() {
@@ -83,10 +90,12 @@ function editBtt(btt) {
                     if(nodeAnteEdit == true)
                         esconderDivEditNode();
                     else {
+                        setDivEditFinalInitial(evtTarget);
                         mostrarDivEditNode(divEditNode, event.renderedPosition.x, event.renderedPosition.y);
                         nodeAnteEdit = true;
                     }
                 else {
+                    setDivEditFinalInitial(evtTarget);
                     mostrarDivEditNode(divEditNode, event.renderedPosition.x, event.renderedPosition.y);
                     editBtt.nodeAnteID = evtTarget.id();
                     nodeAnteEdit = true;

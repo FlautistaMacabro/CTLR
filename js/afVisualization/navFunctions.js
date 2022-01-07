@@ -1,3 +1,7 @@
+// Globals para identificação dos Nodes (se possível melhorar depois)
+var nodeAnteID = '';
+var nodeAnteEdit = false;
+
 function cursorPointerOverNode() {
     cy.on('mouseover', 'node', function (event) {                            
         (event.cy.container()).style.cursor = 'pointer';
@@ -55,18 +59,16 @@ function mostrarDivEditNode(divEditNode, x, y) {
     divEditNode.style.display = 'flex';
 }
 
+function esconderDivEditNode() {
+    document.getElementById('diveditnode').style.display = 'none';
+    nodeAnteEdit = false;
+}
+
 function setDivEditFinalInitial(evtTarget) {
     let inputInitial = document.getElementById('inputinitialnode');
     let inputFinal = document.getElementById('inputfinalnode');
     evtTarget.style('background-image') != 'none' ? inputInitial.checked = true : inputInitial.checked = false;
-    evtTarget.style('border-style') == 'double' ? inputFinal.checked = true : inputFinal.checked = false;
-}
-
-var nodeAnteEdit = false;
-
-function esconderDivEditNode() {
-    document.getElementById('diveditnode').style.display = 'none';
-    nodeAnteEdit = false;
+    evtTarget.style('border-width') != '0px' ? inputFinal.checked = true : inputFinal.checked = false;
 }
 
 function selectBtt(btt) {
@@ -77,16 +79,12 @@ function selectBtt(btt) {
 function editBtt(btt) {
     cy.removeAllListeners();
     cursorPointerOverNode();
-    if(typeof(editBtt.nodeAnteID) == 'undefined'){
-        editBtt.nodeAnteID = '';
-        nodeAnteEdit = false;
-    }
     cy.on('tap', function(event){
         var evtTarget = event.target;
         let divEditNode = document.getElementById('diveditnode');
         if(evtTarget !== cy)
             if(evtTarget.isNode())
-                if(editBtt.nodeAnteID == evtTarget.id())
+                if(nodeAnteID == evtTarget.id())
                     if(nodeAnteEdit == true)
                         esconderDivEditNode();
                     else {
@@ -97,7 +95,7 @@ function editBtt(btt) {
                 else {
                     setDivEditFinalInitial(evtTarget);
                     mostrarDivEditNode(divEditNode, event.renderedPosition.x, event.renderedPosition.y);
-                    editBtt.nodeAnteID = evtTarget.id();
+                    nodeAnteID = evtTarget.id();
                     nodeAnteEdit = true;
                 }
                 /*evtTarget.style({

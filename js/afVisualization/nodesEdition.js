@@ -3,7 +3,7 @@ function setNodeInitial(event) {
     let nodeAtual = cy.getElementById(`${nodeAnteID}`);
     if(checkbox.checked)
         nodeAtual.style({
-            'background-image': 'url(/images/right_arrow.png)'
+            'background-image': 'url(../../images/right_arrow.png)'
         });
     else    nodeAtual.style({
                 'background-image': 'none'

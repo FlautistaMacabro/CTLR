@@ -2,7 +2,7 @@
 @import 'regulars_base';
 
 $borderRadiusSize: 12px;
-$paddingBttsSize: 15px;
+$paddingBttsSize: 12px;
 
 @mixin borderRadius($size) {
     border-bottom-left-radius: $size;
@@ -12,7 +12,7 @@ $paddingBttsSize: 15px;
 @mixin paddingBtts($size) {
     padding-right: $size;
     padding-left: $size;
-    padding-top: $size * 0.30;
+    padding-top: $size * 0.15;
     padding-bottom: $size * 0.40;
 }
 
@@ -23,7 +23,7 @@ $paddingBttsSize: 15px;
 #cy {
     @include FullScreen();
     display: block;
-    height: 93vh;
+    height: 90vh;
     background-color: $roxoEscuro2;
     border-top-left-radius: $borderRadiusSize;
     border-bottom-right-radius: $borderRadiusSize;
@@ -54,7 +54,7 @@ $paddingBttsSize: 15px;
 .cynavbtt {
     @include borderRadius($borderRadiusSize);
     @include paddingBtts($paddingBttsSize);
-    font-size: x-large;
+    font-size: xx-large;
     transition: 0.2s;
     cursor: pointer;
     /*&:hover{

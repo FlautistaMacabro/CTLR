@@ -5,6 +5,16 @@ var sourceArrowID = false;
 
 // Funções auxiliares
 
+function cursorPointerOverEdge() {
+    cy.on('mouseover', 'edge', function (event) {                            
+        (event.cy.container()).style.cursor = 'pointer';
+    } );
+    
+    cy.on('mouseout', 'edge', function (event) {
+        (event.cy.container()).style.cursor = 'default';
+    });    
+}
+
 function cursorPointerOverNode() {
     cy.on('mouseover', 'node', function (event) {                            
         (event.cy.container()).style.cursor = 'pointer';
@@ -196,6 +206,7 @@ function addArrowBtt() {
 function removeBtt() {
     cy.removeAllListeners();
     cursorPointerOverNode();
+    cursorPointerOverEdge();
     esconderDivEditNode();
     setDefaultPosOrCanceledNewArrow();
     cy.on('tap', function(event){

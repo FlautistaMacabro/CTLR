@@ -70,8 +70,8 @@ a {
   position: absolute;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 20vw 68.8vw auto;
-      grid-template-columns: 20vw 68.8vw auto;
+  -ms-grid-columns: 19.5vw 68.3vw auto;
+      grid-template-columns: 19.5vw 68.3vw auto;
 }
 
 #divtestarea {

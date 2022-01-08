@@ -2,7 +2,7 @@ var cy = cytoscape({
 
     container: document.getElementById('cy'),// container to render in
 
-    zoom: 1.5,
+    zoom: 1.6,
     // wheelSensitivity: 0.2,
   
     style: [ // the stylesheet for the graph
@@ -14,7 +14,7 @@ var cy = cytoscape({
           'label': 'data(id)',
           'border-style': 'double',
           'border-color': 'floralwhite',
-          'background-width': '70%',
+          'background-width': '60%',
           'background-height': '70%',
           // Importa para verificações de edição
           'background-image': 'none',

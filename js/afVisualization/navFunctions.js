@@ -53,7 +53,7 @@ function setDefaultPosOrCanceledNewArrow() {
     let input = document.getElementById('inputarrowlabel');
     if(sourceArrowID){
         cy.nodes(`[id = "${sourceArrowID}"]`).style({
-            'background-color': '#666'
+            'background-color': 'rgba(207, 103, 221, 0.49)'
         });
         sourceArrowID = false;
     }
@@ -184,7 +184,7 @@ function addArrowBtt() {
                 if(!sourceArrowID){
                     sourceArrowID = evtTarget.id();
                     evtTarget.style({
-                        'background-color': 'lightblue'
+                        'background-color': 'rgba(215, 85, 255, 0.123)'
                     });
                 }else
                     setArrowLabelInput(event.renderedPosition.x, event.renderedPosition.y, evtTarget.id());
@@ -205,17 +205,20 @@ function removeBtt() {
     });
 }
 
+function clearBtt() {
+    cy.removeAllListeners();
+    cursorPointerOverNode();
+    esconderDivEditNode();
+    setDefaultPosOrCanceledNewArrow();
+    cy.remove('edge');
+    cy.remove('node');
+}
+
 window.addEventListener('load', function init() {
-    let btts = document.querySelectorAll(".cynavbtt");
-    for (let i = 0; i < btts.length; i++)
-        if(btts[i].id == 'selectbtt')
-            btts[i].addEventListener('click', selectBtt);
-        else if(btts[i].id == 'editbtt')
-            btts[i].addEventListener('click', editBtt);
-        else if(btts[i].id == 'addnodebtt')
-            btts[i].addEventListener('click', addNodeBtt);
-        else if(btts[i].id == 'addarrowbtt')
-            btts[i].addEventListener('click', addArrowBtt);
-        else if(btts[i].id == 'removebtt')
-            btts[i].addEventListener('click', removeBtt);
+    document.getElementById('selectbtt').addEventListener('click', selectBtt);
+    document.getElementById('editbtt').addEventListener('click', editBtt);
+    document.getElementById('addnodebtt').addEventListener('click', addNodeBtt);
+    document.getElementById('addarrowbtt').addEventListener('click', addArrowBtt);
+    document.getElementById('removebtt').addEventListener('click', removeBtt);
+    document.getElementById('clearbtt').addEventListener('click', clearBtt);
 })

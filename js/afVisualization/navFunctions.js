@@ -1,6 +1,9 @@
-// Globals para identificação dos Nodes (se possível melhorar depois)
+// Globals para identificação dos Nodes e adição de transições (se possível melhorar depois)
 var nodeAnteID = '';
 var nodeAnteEdit = false;
+var sourceArrowID = false;
+
+// Funções auxiliares
 
 function cursorPointerOverNode() {
     cy.on('mouseover', 'node', function (event) {                            
@@ -46,22 +49,27 @@ function getEdgeID() {
     return i;
 }
 
-function defaultNodeColorWithID(numClick) {
-    cy.nodes(`[id = "${numClick}"]`).style({
-        'background-color': '#666'
-    });
-    return false;
+function setDefaultPosOrCanceledNewArrow() {
+    let input = document.getElementById('inputarrowlabel');
+    if(sourceArrowID){
+        cy.nodes(`[id = "${sourceArrowID}"]`).style({
+            'background-color': 'rgba(207, 103, 221, 0.49)'
+        });
+        sourceArrowID = false;
+    }
+    if(typeof(input) !== 'undefined' && input != null)
+        input.remove()
 }
 
-function mostrarDivEditNode(divEditNode, x, y) {
-    divEditNode.style.left = `${x}px`;
-    divEditNode.style.top = `${y}px`;
+function mostrarDivEditNode(divEditNode, posX, posY) {
+    divEditNode.style.left = `${posX}px`;
+    divEditNode.style.top = `${posY}px`;
     divEditNode.style.display = 'flex';
 }
 
 function esconderDivEditNode() {
-    document.getElementById('diveditnode').style.display = 'none';
     nodeAnteEdit = false;
+    document.getElementById('diveditnode').style.display = 'none';
 }
 
 function setDivEditFinalInitial(evtTarget) {
@@ -71,14 +79,53 @@ function setDivEditFinalInitial(evtTarget) {
     evtTarget.style('border-width') != '0px' ? inputFinal.checked = true : inputFinal.checked = false;
 }
 
-function selectBtt(btt) {
-    cy.removeAllListeners();
-    esconderDivEditNode();
+function labelFromArrowInput(event, targetArrowID) {
+    if(event.key != 'Enter') return;
+    let labelAux = (event.target).value;
+    if(!labelAux)
+        labelAux = 'λ';
+    cy.add({
+        group: 'edges',
+        data: { id: `e${getEdgeID()}`, source: `${sourceArrowID}`, target: `${targetArrowID}`,
+                label: `${labelAux}` }
+    });
+    setDefaultPosOrCanceledNewArrow();
 }
 
-function editBtt(btt) {
+function setArrowLabelInput(posX, posY, targetArrowID) {
+    // return prompt('Digite o caractere da transição (deixe vazio para transição nula):');
+    let input = document.createElement('input');
+    let posXmedio, posYmedio;
+    if(sourceArrowID == targetArrowID){
+        posXmedio = posX;
+        posYmedio = posY;
+    }else {
+        let nodeAnte = cy.getElementById(`${sourceArrowID}`);
+        posXmedio = (nodeAnte.renderedPosition('x') + posX)/2;
+        posYmedio = (nodeAnte.renderedPosition('y') + posY)/2;
+    }
+    input.setAttribute('type', 'text');
+    input.setAttribute('id', 'inputarrowlabel');
+    input.classList.add('inputaddarrow');
+    input.style.left = `${posXmedio}px`;
+    input.style.top = `${posYmedio}px`;
+    input.addEventListener('keyup', (event) => labelFromArrowInput(event, targetArrowID));
+    document.getElementsByTagName('main')[0].appendChild(input);
+    input.focus();
+}
+
+// Listeners dos Botões 
+
+function selectBtt() {
+    cy.removeAllListeners();
+    esconderDivEditNode();
+    setDefaultPosOrCanceledNewArrow();
+}
+
+function editBtt() {
     cy.removeAllListeners();
     cursorPointerOverNode();
+    setDefaultPosOrCanceledNewArrow();
     cy.on('tap', function(event){
         var evtTarget = event.target;
         let divEditNode = document.getElementById('diveditnode');
@@ -106,9 +153,10 @@ function editBtt(btt) {
     });
 }
 
-function addNodeBtt(btt) {
+function addNodeBtt() {
     cy.removeAllListeners();
     esconderDivEditNode();
+    setDefaultPosOrCanceledNewArrow();
     cy.on('tap', function(event){
         var evtTarget = event.target;
         
@@ -125,41 +173,31 @@ function addNodeBtt(btt) {
     });
 }
 
-function addArrowBtt(btt) {
+function addArrowBtt() {
     cy.removeAllListeners();
     cursorPointerOverNode();
     esconderDivEditNode();
-    if(typeof(addArrowBtt.numClick) == 'undefined')
-        addArrowBtt.numClick = false;
     cy.on('tap', function(event){
         var evtTarget = event.target;
         if(evtTarget !== cy)
             if(evtTarget.isNode())
-                if(addArrowBtt.numClick == false){
-                    addArrowBtt.numClick = evtTarget.id();
+                if(!sourceArrowID){
+                    sourceArrowID = evtTarget.id();
                     evtTarget.style({
-                        'background-color': 'lightblue'
+                        'background-color': 'rgba(215, 85, 255, 0.123)'
                     });
-                }else {
-                    let labelAux = prompt('Digite o caractere da transição (deixe vazio para transição nula):');
-                    if(!labelAux)
-                        labelAux = 'λ';
-                    cy.add({
-                        group: 'edges',
-                        data: { id: `e${getEdgeID()}`, source: `${addArrowBtt.numClick}`, target: `${evtTarget.id()}`,
-                                label: `${labelAux}` }
-                    });
-                    addArrowBtt.numClick = defaultNodeColorWithID(addArrowBtt.numClick);
-                }
-            else addArrowBtt.numClick = defaultNodeColorWithID(addArrowBtt.numClick);
-        else addArrowBtt.numClick = defaultNodeColorWithID(addArrowBtt.numClick);
+                }else
+                    setArrowLabelInput(event.renderedPosition.x, event.renderedPosition.y, evtTarget.id());
+            else setDefaultPosOrCanceledNewArrow();
+        else setDefaultPosOrCanceledNewArrow();
     });
 }
 
-function removeBtt(btt) {
+function removeBtt() {
     cy.removeAllListeners();
     cursorPointerOverNode();
     esconderDivEditNode();
+    setDefaultPosOrCanceledNewArrow();
     cy.on('tap', function(event){
         var evtTarget = event.target;
         if(evtTarget !== cy )
@@ -167,17 +205,20 @@ function removeBtt(btt) {
     });
 }
 
+function clearBtt() {
+    cy.removeAllListeners();
+    cursorPointerOverNode();
+    esconderDivEditNode();
+    setDefaultPosOrCanceledNewArrow();
+    cy.remove('edge');
+    cy.remove('node');
+}
+
 window.addEventListener('load', function init() {
-    let btts = document.querySelectorAll(".cynavbtt");
-    for (let i = 0; i < btts.length; i++)
-        if(btts[i].id == 'selectbtt')
-            btts[i].addEventListener('click', (event) => selectBtt(event));
-        else if(btts[i].id == 'editbtt')
-            btts[i].addEventListener('click', (event) => editBtt(event));
-        else if(btts[i].id == 'addnodebtt')
-            btts[i].addEventListener('click', (event) => addNodeBtt(event));
-        else if(btts[i].id == 'addarrowbtt')
-            btts[i].addEventListener('click', (event) => addArrowBtt(event));
-        else if(btts[i].id == 'removebtt')
-            btts[i].addEventListener('click', (event) => removeBtt(event));
+    document.getElementById('selectbtt').addEventListener('click', selectBtt);
+    document.getElementById('editbtt').addEventListener('click', editBtt);
+    document.getElementById('addnodebtt').addEventListener('click', addNodeBtt);
+    document.getElementById('addarrowbtt').addEventListener('click', addArrowBtt);
+    document.getElementById('removebtt').addEventListener('click', removeBtt);
+    document.getElementById('clearbtt').addEventListener('click', clearBtt);
 })

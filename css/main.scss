@@ -3,6 +3,7 @@ $menuPaddingSize: 3vh;
 
 body {
     background-color: $rosaClaro;
+    overflow-x: hidden;
 }
 
 /*object {
@@ -22,6 +23,10 @@ nav {
 
 main {
     position: relative;
+}
+
+a {
+    height: 100%;
 }
 
 #divgeral {

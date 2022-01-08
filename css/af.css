@@ -100,6 +100,13 @@ html, body {
     }*/
 }
 
+.inputaddarrow {
+  width: 70px;
+  z-index: 2;
+  position: absolute;
+  color: black;
+}
+
 /*:target{
     background-color: $roxoEscuro3;
 }

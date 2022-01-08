@@ -33,6 +33,7 @@ html, body {
 
 body {
   background-color: rgba(193, 85, 255, 0.589);
+  overflow-x: hidden;
 }
 
 /*object {
@@ -51,6 +52,10 @@ nav {
 
 main {
   position: relative;
+}
+
+a {
+  height: 100%;
 }
 
 #divgeral {

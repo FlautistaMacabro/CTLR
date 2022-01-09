@@ -197,7 +197,9 @@ function addArrowBtt() {
                         'background-color': 'rgba(215, 85, 255, 0.123)'
                     });
                 }else
-                    setArrowLabelInput(event.renderedPosition.x, event.renderedPosition.y, evtTarget.id());
+                    if(document.getElementById('inputarrowlabel') != null)
+                        setDefaultPosOrCanceledNewArrow();
+                    else setArrowLabelInput(event.renderedPosition.x, event.renderedPosition.y, evtTarget.id());
             else setDefaultPosOrCanceledNewArrow();
         else setDefaultPosOrCanceledNewArrow();
     });

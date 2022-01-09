@@ -45,6 +45,7 @@ function manipularTabela(event) {
             inputNew[i].setAttribute('type', 'text');
             inputNew[i].addEventListener('keyup', (event) => manipularTabela(event));
         }
+        inputNew[1].setAttribute('value','λ');
         divNewColumn[0].appendChild(inputNew[0]);
         divNewColumn[2].appendChild(inputNew[1]);
 

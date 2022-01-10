@@ -99,6 +99,6 @@ function testVerifySentence(){
         console.log(`\nSentença \"${sentence}\": ${verifySentenceForGrammar(rules4, sentence, "S")}`);
     })
     
-
+    
     //console.log(`\nSentenca \"ab\": ${verifySentenceForGrammar(rules4, "ab", "S")}`);
 }

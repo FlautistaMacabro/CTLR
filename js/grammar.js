@@ -54,7 +54,7 @@ function verifySentenceForGrammar(rules, sentence, startRule, noConsumptionCount
     )){
         let verified = false;
 
-        if(sentenceLength > 0){
+        if(sentenceLength > 1){
             if(nr === "") verified = false;
             else if(nr.charAt(1) === "|") verified = verifySentenceForGrammar(rules, sentence, nr.charAt(0), ++noConsumptionCount);
             else verified = verifySentenceForGrammar(rules, sentence.slice(1), nr.charAt(0));

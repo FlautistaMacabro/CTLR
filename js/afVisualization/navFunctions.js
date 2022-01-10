@@ -173,7 +173,7 @@ function addNodeBtt() {
         if(evtTarget === cy){
             cy.add({
                 group: 'nodes',
-                data: { id: `q${getNodeID()}`, weight: 75 },
+                data: { id: `q${getNodeID()}` },
                 renderedPosition: {
                     x: event.renderedPosition.x,
                     y: event.renderedPosition.y,
@@ -234,4 +234,16 @@ window.addEventListener('load', function init() {
     document.getElementById('addarrowbtt').addEventListener('click', addArrowBtt);
     document.getElementById('removebtt').addEventListener('click', removeBtt);
     document.getElementById('clearbtt').addEventListener('click', clearBtt);
+    // Primeiro nó
+    let firstNode = cy.add({
+        group: 'nodes',
+        data: { id: `q${getNodeID()}` },
+        renderedPosition: {
+            x: 100,
+            y: 100,
+        }
+    });
+    firstNode.style({
+        'background-image': 'url(https://flautistamacabro.github.io/CTLR/images/right_arrow.png)'
+    });
 })

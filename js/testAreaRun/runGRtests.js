@@ -71,9 +71,17 @@ function getGRfromTable() {
 }
 
 function runGRtests() {
-    let grammar = {};
-    grammar = getGRfromTable();
-    console.log(`${JSON.stringify(grammar)}`);
+    let rules = {};
+    rules = getGRfromTable();
+    console.log(`${JSON.stringify(rules)}`);
+    let allRows = document.querySelectorAll(".divtestarearow");
+    for (let i = 0; i < allRows.length; i++) {
+        let inputColumn = (allRows[i].firstElementChild).firstElementChild;
+        let resultColumn = (allRows[i].lastElementChild).firstElementChild;
+        if(verifySentenceForGrammar(rules, inputColumn.value, "S"))
+            resultColumn.innerHTML = "ACEITO";
+        else resultColumn.innerHTML = "REJEITADO";
+    }
 }
 
 window.addEventListener('load', function init() {

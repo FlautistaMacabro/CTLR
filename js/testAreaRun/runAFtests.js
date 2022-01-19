@@ -82,7 +82,7 @@ function runAFtests() {
     for (let i = 0; i < allRows.length; i++) {
         let inputColumn = (allRows[i].firstElementChild).firstElementChild;
         let resultColumn = (allRows[i].lastElementChild).firstElementChild;
-        if(verifySentenceForGrammar({S:["aA"],A:["aA",""]}, inputColumn.value, "S"))
+        if(verifySentenceForGrammar(rules, inputColumn.value, "S"))
             resultColumn.innerHTML = "ACEITO";
         else resultColumn.innerHTML = "REJEITADO";
     }

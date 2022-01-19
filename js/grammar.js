@@ -36,45 +36,32 @@ function parseRuleString(ruleString){
 // as condições de terminação são chegar ao fim da sentença ou não haver mais próximas regras válidas
 // parâmetro noConsumptionCount: quantidade de vezes que a funcão foi chamada sem consumir letra da sentença
 function verifySentenceForGrammar(rules, sentence, startRule, noConsumptionCount = 0){
-    console.log("sentence: \n"+JSON.stringify(sentence));
-    console.log("noConsumption: "+noConsumptionCount);
-    
     if(noConsumptionCount >= 200) return(false);
-
     let sentenceLength = sentence.length;
     let nextRules = [];
 
-    //console.log("startRule: \n"+JSON.stringify(startRule));
+    // próximas regras possíveis são obtidas, lembrando que isto eh com a regra recebida na chamada da função
+    if(startRule != "") nextRules = verifyCharWithRule(rules[startRule], sentence.charAt(0));
 
-    // próximas regras possíveis são obtidas
-    if(startRule != "")
-        nextRules = verifyCharWithRule(rules[startRule], sentence.charAt(0));
-    else nextRules.push("");
+    ////////////////////////////
+    //condições de terminação://
+    ////////////////////////////
+    if((sentenceLength > 0) && (nextRules.length <= 0)) return(false);
 
-    console.log("nextRules: \n"+JSON.stringify(nextRules));
-
-    // condição de terminação
-    if((sentenceLength <= 0) && (nextRules.length <= 0)) return(false);
-
-    // caso a condição final de sucesso seja alcançada a qualquer momento, o loop será interrompido retornando true e assim desfazendo a pilha de recursão
     for(const nr of nextRules.filter((ruleToCheckIfNull) => {
         return((ruleToCheckIfNull != 'NaN') &&  (ruleToCheckIfNull != null));
     }
     )){
-        //console.log("nr: \n"+JSON.stringify(nr));
-
         let verified = false;
-        if(sentenceLength <= 0){ //sentença é vazia
-            if(nr === "") verified = true;
-            else{ // a regra não é vazia
-                if(nr.charAt(1) === "|") verified = verifySentenceForGrammar(rules, sentence, nr.charAt(0), ++noConsumptionCount);
-                else verified = false;
-            }
+
+        if(sentenceLength > 1){
+            if(nr === "") verified = false;
+            else if(nr.charAt(1) === "|") verified = verifySentenceForGrammar(rules, sentence, nr.charAt(0), ++noConsumptionCount);
+            else verified = verifySentenceForGrammar(rules, sentence.slice(1), nr.charAt(0));
         }
-        else{ // sentenca não é vazia
-            if(nr.charAt(1) === "|") verified = verifySentenceForGrammar(rules, sentence, nr.charAt(0), ++noConsumptionCount);
-            else if(nr != "") verified = verifySentenceForGrammar(rules, sentence.slice(1), nr.charAt(0));
-            else verified = false;
+        else{
+            if(nr === "") verified = true;
+            else if(nr.charAt(1) === "|") verified = verifySentenceForGrammar(rules, sentence, nr.charAt(0), ++noConsumptionCount);
         }
 
         if(verified) return(verified);

@@ -102,3 +102,7 @@ function testVerifySentence(){
     
     //console.log(`\nSentenca \"ab\": ${verifySentenceForGrammar(rules4, "ab", "S")}`);
 }
+
+function testVerifificadorNovo(){
+    
+}

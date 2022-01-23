@@ -21,6 +21,49 @@ function getEstadosComSPrimeiro(estados){
     return estados;
 }
 
+function getTodosEstadosEscritos(estados, transissoes) {
+    let tamEstados = estados.length, tamTransissoes = transissoes.length;
+    let n, alpha;
+    let flag = true;
+    let otherLetters = [];
+    n = 0;
+    while(n < 26){
+        alpha = String.fromCharCode(65 + n);
+        flag = true;
+        for (let i = 0; i < tamTransissoes && flag; i++){
+            if(transissoes[i].Transition.includes(`${alpha}`)){
+                for (let j = 0; j < tamEstados; j++)
+                    if(alpha == estados[j]){
+                        flag = false;
+                        break;
+                    }
+                if(flag)
+                    otherLetters.push(transissoes[i]);
+            } 
+        }
+        n++;
+    }
+    let tamOther = otherLetters.length;
+    for (let i = 0; i < tamOther; i++)
+        transissoes.splice(transissoes.indexOf(otherLetters[i]), 1);
+    tamTransissoes = transissoes.length;
+    otherLetters = [];
+    for (let i = 0; i < tamEstados; i++) {
+        flag = true;
+        for (let j = 0; j < tamTransissoes; j++)
+            if(transissoes[j].Estado.includes(estados[i])){
+                flag = false;
+                break;
+            }
+        if(flag)
+            otherLetters.push(estados[i]);
+    }
+    tamOther = otherLetters.length;
+    for (let i = 0; i < tamOther; i++)
+        estados.splice(estados.indexOf(otherLetters[i]), 1);
+    return estados;
+}
+
 function getGRfromTable() {
     let allRows = document.querySelectorAll(".divgrammarrow");
     let tam = allRows.length;
@@ -49,6 +92,7 @@ function getGRfromTable() {
         }
     }
     estadosDistintos = getEstadosComSPrimeiro(estadosDistintos);
+    estadosDistintos = getTodosEstadosEscritos(estadosDistintos, allTransitions);
     tam = estadosDistintos.length;
     for (let i = 0; i < tam; i++) {
         let estadosAtual = estadosDistintos[i];

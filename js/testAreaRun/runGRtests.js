@@ -64,7 +64,7 @@ function getGRfromTable() {
             }
         }
         if(flag)
-            transissao.push('');
+            transissao.push("\\");
         grammar[`${estadosAtual}`] = transissao;
     }
     return grammar;
@@ -78,7 +78,7 @@ function runGRtests() {
     for (let i = 0; i < allRows.length; i++) {
         let inputColumn = (allRows[i].firstElementChild).firstElementChild;
         let resultColumn = (allRows[i].lastElementChild).firstElementChild;
-        if(verifySentenceForGrammar(rules, inputColumn.value, "S"))
+        if(verificaSentencaGramatica(rules, inputColumn.value))
             resultColumn.innerHTML = "ACEITO";
         else resultColumn.innerHTML = "REJEITADO";
     }

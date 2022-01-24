@@ -67,7 +67,7 @@ function getAFtoGR() {
                 }
         }
         if(nodesObj[i].style('border-width') != '0px')
-            transissoes.push("");
+            transissoes.push("\\");
         if (transissoes.length !== 0)
             grammar[`${nodesNames[i]}`] = transissoes;
     }
@@ -82,7 +82,7 @@ function runAFtests() {
     for (let i = 0; i < allRows.length; i++) {
         let inputColumn = (allRows[i].firstElementChild).firstElementChild;
         let resultColumn = (allRows[i].lastElementChild).firstElementChild;
-        if(verifySentenceForGrammar(rules, inputColumn.value, "S"))
+        if(verificaSentencaGramatica(rules, inputColumn.value))
             resultColumn.innerHTML = "ACEITO";
         else resultColumn.innerHTML = "REJEITADO";
     }

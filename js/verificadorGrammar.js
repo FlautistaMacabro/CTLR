@@ -6,7 +6,8 @@ function verificaSentencaGramatica(rules, sentence, start = 'S'){
   let regrasSeguintes = new Set();
   regrasSeguintes.clear();
   //primeiro loop, verifica ate que a sentenca esteja vazia
-  while(sentence !== "" && contTentativa < maxTentativas){
+  //if(sentence !== ""){
+  do{
     let consumirCaractere = true;
     for(const linhaAtual of curRules.values()){
       if(linhaAtual !== "\\"){
@@ -37,12 +38,14 @@ function verificaSentencaGramatica(rules, sentence, start = 'S'){
       curRules = new Set(regrasSeguintes);
       regrasSeguintes.clear();
     }else break;
-  }
+  } while (sentence !== "" && contTentativa < maxTentativas)
+
 
   if(contTentativa >= maxTentativas) return false;
 
   curRules = new Set(regrasSeguintes);
   regrasSeguintes.clear();
+  contTentativa = 0;
   //checagem do restante das regras apos o fim da sentenca
   while(contTentativa < maxTentativas){
     for(const linhaAtual of curRules){

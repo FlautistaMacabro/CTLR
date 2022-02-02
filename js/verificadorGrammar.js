@@ -1,4 +1,9 @@
 function verificaSentencaGramatica(rules, sentence, start = 'S'){
+  // S -> λ
+  if(sentence.length == 0)
+    for (let i = 0; i < rules.S.length; i++)
+      if(rules.S[i] == "\\")
+        return true;
   const maxTentativas = 100;
   let contTentativa = 0;
   let curRules = new Set();

@@ -71,7 +71,7 @@ function testVerifySentence(){
         // S: passa para A, ou termina a string com 'b'
         S: ["A", "b"],
         // acrescenta 'b' e passa para A. Ou passa para B, ou finaliza a string
-        A: ["bA", "B", ""],
+        A: ["bA", "B", "\\"],
         // acrescenta 'a' e passa para A
         B: ["aA"]
     }
@@ -86,8 +86,8 @@ function testVerifySentence(){
     }
 
     let rules4 ={
-       S: ["bA", "aA", ""],
-       A:  ["b", "aA", ""]
+       S: ["bA", "aA", "\\"],
+       A:  ["b", "aA", "\\"]
     }
 
     let sentences = [
